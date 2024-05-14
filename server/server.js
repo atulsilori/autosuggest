@@ -10,6 +10,7 @@ import { fetchHotels } from "../src/redux/slice/hotelsSlice";
 
 require("dotenv").config();
 var bodyParser = require("body-parser");
+const cors = require("cors");
 
 const hotelRouter = require("./routes/hotels");
 const searchPlaceRouter = require("./routes/searchPlaces");
@@ -18,6 +19,7 @@ const getPlaceDetail = require("./routes/getPlaceDetails");
 import App from "../src/index";
 
 const app = express();
+app.use(cors());
 app.use(bodyParser.json()); // to support JSON-encoded bodies
 app.use(
   bodyParser.urlencoded({
