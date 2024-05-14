@@ -1,0 +1,68 @@
+main.main-container{
+  position: relative;
+  min-height: calc(100vh - 8.2em);
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main.main-container .autosuggest-input{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1em;
+}
+
+main.main-container .autosuggest-input .text-input{
+  padding: 0.4em;
+}
+
+main.main-container .autosuggest-input .autosuggest-options{
+  max-height: 400px;
+  overflow-y: scroll;
+  border: 0.5px solid grey;
+  width: calc(100% + 0.8em);
+  background: white;
+  z-index: 1;
+}
+
+.option-container .option-group-title{
+  background-color: lightgrey;
+  font-size: small;
+}
+
+.option-container .option-group-options .option{
+  cursor: pointer;
+  font-size: small;
+  padding-left: 1em;
+}
+
+.option-container .option-group-options .option:hover{
+  background-color: #eeeeee
+}
+
+// page detail styles
+.page-detail{
+  position: absolute;
+  top: 5em;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// hotel page styles
+.hotel-page h1{
+  text-align: center;
+}
+
+.hotel-page p{
+  text-align: justify;
+  width: 50%;
+}
+
+.hotel-page address{
+  text-align: center;
+  margin-top: 1em;
+}

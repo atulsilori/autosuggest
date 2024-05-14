@@ -1,0 +1,11 @@
+header.header-class{
+  height: 4em;
+  border: 0.5px solid grey;
+  padding-left: 1em;
+}
+
+header.header-class .icon{
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
