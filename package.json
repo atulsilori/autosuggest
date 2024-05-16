@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack serve --env development --open --hot",
-    "build": "webpack --env production",
-    "ssr": "npm run build && node server/index.js"
+    "dev": "webpack serve --env development --open --hot",
+    "build": "webpack --env production && webpack --config ./build-utils/webpack.server.js ",
+    "ssr:client": "npm run build && node dist/server/app-prod.js",
+    "start": "node dist/server/app-prod.js"
   },
   "author": "",
   "license": "ISC",
@@ -34,6 +35,7 @@
     "css-minimizer-webpack-plugin": "^7.0.0",
     "express": "^4.19.2",
     "html-webpack-plugin": "^5.6.0",
+    "ignore-loader": "^0.1.2",
     "ignore-styles": "^5.0.1",
     "less-loader": "^12.2.0",
     "mini-css-extract-plugin": "^2.9.0",
@@ -46,6 +48,7 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.0.4",
     "webpack-merge": "^5.10.0",
+    "webpack-node-externals": "^3.0.0",
     "webpack-subresource-integrity": "^5.2.0-rc.1"
   }
 }

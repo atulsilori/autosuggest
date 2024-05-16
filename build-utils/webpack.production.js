@@ -9,7 +9,9 @@ const getTimeStamp = () => new Date().toISOString().replace(/[-:]/g, "");
 
 module.exports = {
   mode: "production",
+  target: "web",
   output: {
+    path: path.join(__dirname, "../dist"),
     filename: `assets/js/bundle.main.[contenthash:8].${getTimeStamp()}.js`,
     chunkFilename: `assets/js/bundle.[name].[contenthash:8].${getTimeStamp()}.js`,
     crossOriginLoading: "anonymous",

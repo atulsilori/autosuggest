@@ -5,7 +5,7 @@ import "../../styles/footer.scss";
 const Footer = () => {
   return (
     <footer className="footer-class">
-      <span>&#169;{new Date().getFullYear()} Atul</span>
+      <span>&#169; Atul</span>
     </footer>
   );
 };

@@ -15,7 +15,7 @@ const cors = require("cors");
 const hotelRouter = require("./routes/hotels");
 const searchPlaceRouter = require("./routes/searchPlaces");
 const getPlaceDetail = require("./routes/getPlaceDetails");
-
+// const App = require("../src/index");
 import App from "../src/index";
 
 const app = express();
@@ -35,6 +35,20 @@ const render = (store) => {
     </Provider>
   );
 };
+// console.log(
+//   'path.resolve(__dirname, "..", "dist") -- ',
+//   path.resolve(__dirname, "..")
+// );
+// //path.resolve("./dist/index.html")
+console.log(
+  'path.resolve(__dirname, "..", "dist", "index.html") -- ',
+  path.resolve("./dist/index.html")
+);
+
+//path.resolve(__dirname, "..", "dist", "index.html")
+
+//path.resolve("./src/index");
+// app.use(express.static("./dist"));
 
 app.use("/hotels", hotelRouter);
 app.use("/searchPlace", searchPlaceRouter);
@@ -48,10 +62,9 @@ app.get("/", async (req, res) => {
   fs.readFile(path.resolve("./dist/index.html"), "utf-8", (err, data) => {
     if (err) {
       console.log(err);
-      return res.status(500).send("Error ", err);
+      res.status(500).send("Error ", err);
     }
-
-    return res.send(
+    res.send(
       data.replace(
         '<div id="root"></div>',
         `<div id="root">${ReactDomServer.renderToString(render(store))}</div>
@@ -63,9 +76,5 @@ app.get("/", async (req, res) => {
     );
   });
 });
-
-app.use(
-  express.static(path.resolve(__dirname, "..", "dist"), { maxAge: "30d" })
-);
-
+app.use(express.static(path.resolve("./dist"), { maxAge: "30d" }));
 app.listen(port, () => console.log(`app listening on port ${port}!`));
